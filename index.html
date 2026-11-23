@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030704">
+  <title>Elige tu dispositivo</title>
+  <link rel="icon" href="/freecash-logo.webp" type="image/webp">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(
+        circle at 50% 20%,
+        #143322,
+        #07150c 45%,
+        #030704
+      );
+      color: #f5fff7;
+    }
+
+    .device-gate {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 22px;
+    }
+
+    .device-box {
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+    }
+
+    .device-icon {
+      width: 94px;
+      height: 94px;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background: linear-gradient(#67ffa3, #20d66b);
+      color: #031108;
+      font-size: 42px;
+      box-shadow: 0 16px 36px rgba(57,255,136,.28);
+    }
+
+    h1 {
+      font-size: clamp(32px, 9vw, 46px);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: #a7b8ab;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .device-actions {
+      display: grid;
+      gap: 12px;
+    }
+
+    button {
+      width: 100%;
+      min-height: 66px;
+      padding: 14px;
+      border-radius: 18px;
+      font-size: 17px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .15s, opacity .15s;
+    }
+
+    button:active {
+      transform: scale(.98);
+    }
+
+    .ios {
+      border: none;
+      color: #031108;
+      background: linear-gradient(#67ffa3, #20d66b);
+    }
+
+    .android {
+      color: #e8f3eb;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="device-gate">
+    <section class="device-box">
+
+      <div class="device-icon">📱</div>
+
+      <h1>¿Usas iOS o Android?</h1>
+
+      <p>
+        Selecciona tu dispositivo para continuar.
+      </p>
+
+      <div class="device-actions">
+
+        <button class="ios" type="button">
+          iOS (iPhone)
+        </button>
+
+        <button class="android" type="button">
+          Android
+        </button>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function goToLander() {
+      const destination = new URL(
+        "/home/",
+        window.location.origin
+      );
+
+      // Conserva los parámetros de seguimiento.
+      destination.search = window.location.search;
+
+      window.location.assign(destination.href);
+    }
+
+    document.querySelector(".ios")
+      .addEventListener("click", goToLander);
+
+    document.querySelector(".android")
+      .addEventListener("click", goToLander);
+  </script>
+</body>
+</html>
